@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>main.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+.s3 { color: #6897bb;}
+.s4 { color: #808080;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+main.py</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">time</span>
+<span class="s0">import </span><span class="s1">pywhatkit</span>
+<span class="s0">import </span><span class="s1">keyboard</span>
+<span class="s0">import </span><span class="s1">PySimpleGUI </span><span class="s0">as </span><span class="s1">sg</span>
+
+<span class="s1">sg.theme(</span><span class="s2">'Blue'</span><span class="s1">)</span>
+
+<span class="s1">layout = [</span>
+
+          <span class="s1">[sg.Column([[sg.Image(filename=</span><span class="s2">'icon.png'</span><span class="s1">)]]</span><span class="s0">,</span><span class="s1">justification=</span><span class="s2">'center'</span><span class="s1">)]</span><span class="s0">,</span>
+          <span class="s1">[sg.Text(</span><span class="s2">'Mesajınızı Girin'</span><span class="s1">)</span><span class="s0">, </span><span class="s1">sg.Text(size=(</span><span class="s3">15</span><span class="s0">,</span><span class="s3">1</span><span class="s1">))]</span><span class="s0">,</span>
+          <span class="s1">[sg.InputText()]</span><span class="s0">,</span>
+          <span class="s1">[sg.Button(</span><span class="s2">'Tamam'</span><span class="s1">)]]</span>
+
+<span class="s1">window = sg.Window(</span><span class="s2">&quot;WhatSalk&quot;</span><span class="s0">, </span><span class="s1">icon=</span><span class="s2">'icon.ico'</span><span class="s1">).Layout(layout)</span>
+
+<span class="s0">while True</span><span class="s1">:  </span><span class="s4"># Event Loop</span>
+    <span class="s1">event</span><span class="s0">, </span><span class="s1">values = window.read()</span>
+    <span class="s1">print(event</span><span class="s0">, </span><span class="s1">values)</span>
+    <span class="s0">if </span><span class="s1">event == sg.WIN_CLOSED </span><span class="s0">or </span><span class="s1">event == </span><span class="s2">'Tamam'</span><span class="s1">:</span>
+        <span class="s0">break</span>
+<span class="s1">message = values[</span><span class="s3">0</span><span class="s1">]</span>
+<span class="s1">list = [</span><span class="s2">&quot;+905323918154&quot;</span><span class="s1">]</span>
+<span class="s1">listleng = str(len(list))</span>
+<span class="s1">listlengint = len(list)</span>
+<span class="s1">print(</span><span class="s2">&quot;Number of list items: &quot; </span><span class="s1">+ listleng + </span><span class="s2">&quot; different numbers are found.&quot;</span><span class="s1">)</span>
+<span class="s1">print(</span><span class="s2">&quot;message &quot; </span><span class="s1">+ message + </span><span class="s2">&quot; ||&quot;</span><span class="s1">)</span>
+<span class="s1">i = </span><span class="s3">0</span>
+<span class="s0">while </span><span class="s1">(i &lt; listlengint):</span>
+    <span class="s1">a = list[i]</span>
+    <span class="s1">print(a)</span>
+    <span class="s1">pywhatkit.sendwhatmsg_instantly(a</span><span class="s0">, </span><span class="s1">message</span><span class="s0">, </span><span class="s3">5</span><span class="s1">)</span>
+    <span class="s1">keyboard.press_and_release(</span><span class="s2">'enter'</span><span class="s1">)</span>
+    <span class="s1">time.sleep(</span><span class="s3">3</span><span class="s1">)</span>
+    <span class="s1">keyboard.press_and_release(</span><span class="s2">'ctrl+w'</span><span class="s1">)</span>
+    <span class="s1">i = i + </span><span class="s3">1</span>
+
+
+</pre>
+</body>
+</html>
